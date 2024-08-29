@@ -9,11 +9,11 @@
         </a>
     </div>
     <nav class="flex flex-wrap gap-5">
-        <a href="/">Productos</a>
-        <a href="/">Mi compra</a>
-        <a href="/">Nosotros</a>
-        <a href="/">Mi cuenta</a>
-        <a href="/">Centro de atención al cliente</a>
+        <a class="underline-animated" href="/">Productos</a>
+        <a class="underline-animated" href="/">Mi compra</a>
+        <a class="underline-animated" href="/">Nosotros</a>
+        <a class="underline-animated" href="/">Mi cuenta</a>
+        <a class="underline-animated" href="/">Centro de atención al cliente</a>
     </nav>
 </header>
 <style>
@@ -30,5 +30,37 @@
             0px 0px 0px 1px hsla(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
         }
+    }
+
+    @keyframes underlineAnimation{
+        from{
+            width: 0;
+            opacity: 0;
+        }
+        to{
+            width: 100%;
+            opacity: 1;
+        }
+    }
+    .underline-animated{
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+    }
+    .underline-animated::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        background-color: currentColor;
+        width: 100%;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: bottom left;
+    }
+    .underline-animated:hover::after{
+        transform: scaleX(1);
+        transform-origin: bottom left;
     }
 </style>
