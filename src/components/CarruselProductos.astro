@@ -20,25 +20,25 @@ const { producto } = Astro.props;
     <ArrowRight/>
     </div>
     <div class="flex flex-col gap-4" >
-        <div class="gap-4 border-b-[1px] border-gray-400 ">
-            <div class="flex items-center gap-2" >
-                <Aroma class="leading-7 whitespace-normal"/>
-                <h5 class="capitalize font-semibold" >Aroma:</h5>
+        <div class="gap-4">
+            <div class="flex items-center gap-2 justify-center" >
+                <!-- <Aroma class="leading-7 whitespace-normal"/> -->
+                <h5 class="capitalize font-semibold font-anek devanagari" >Aroma:</h5>
                 <strong>{producto.aroma}</strong>
             </div>
-            <div class="flex items-center gap-2" >
-                <Color class="leading-7 whitespace-normal"/>
+            <div class="flex items-center gap-2 justify-center" >
+                <!-- <Color class="leading-7 whitespace-normal"/> -->
                 <h5 class="capitalize font-semibold">Color:</h5>
                 <strong>{producto.color}</strong>
             </div>
-            <div class="flex items-center gap-2" >
-                <Tamaño class="leading-7 whitespace-normal"/>
+            <div class="flex items-center gap-2 justify-center" >
+                <!-- <Tamaño class="leading-7 whitespace-normal"/> -->
                 <h5 class="capitalize font-semibold">Tamaño:</h5>
                 <strong>{producto.tamaño}</strong>
             </div>
         </div>
     </div>
-    <div class="flex flex-col p-2" >
+    <div class="flex flex-col p-2 items-center gap-2 justify-center" >
         <span class="text-2xl capitalize font-semibold" >${producto.precio}</span>
     </div>
 </div>

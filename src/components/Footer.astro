@@ -1,7 +1,6 @@
 ---
 ---
-
-<header class="fixed flex w-full justify-between px-12 h-28 items-center bg-[#F2E0D5]" id="nav-bar">
+<footer class="relative flex w-full justify-between px-12 h-56 mt-10 bg-[#BF7D56] items-center">
     <div>
         <a href="/">
             <img src="/img/logo/Logo-zoe.png" alt="logo" width="130px">
@@ -14,14 +13,8 @@
         <a class="underline-animated" href="/">Mi compra</a>
         <a class="underline-animated" href="/">Mi cuenta</a>
     </nav>
-</header>
+</footer>
 <style>
-    #nav-bar {
-        z-index: 1;
-        animation: blur linear both;
-        animation-timeline: scroll();
-        animation-range: 0 500px;
-    }
     @keyframes blur{
         to{
             color: white;
@@ -45,7 +38,7 @@
         position: relative;
         display: inline-block;
         text-decoration: none;
-        color: black;
+        color: white;
     }
     .underline-animated::after{
         content: "";
