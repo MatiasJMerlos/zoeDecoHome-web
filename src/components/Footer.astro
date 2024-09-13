@@ -1,17 +1,22 @@
 ---
+import Instagram from "./Icon/Instagram.astro";
+import Whatsapp from "./Icon/Whatsapp.astro";
 ---
-<footer class="relative flex w-full justify-between px-12 h-56 mt-10 bg-[#BF7D56] items-center">
+<footer class="relative flex w-full justify-around px-12 h-64 mt-10 bg-[#BF7D56] items-center">
+    
+    <nav class="flex flex-wrap gap-32 text-xl m-16 text-white">
+        <a href="#productosDestacados">Productos Destacados</a>
+        <a href="/">Nosotros</a>
+    </nav>    
     <div>
         <a href="/">
-            <img src="/img/logo/Logo-zoe.png" alt="logo" width="130px">
+            <img src="/img/logo/Logo-zoe-blanco.png" alt="logo" width="200px">
         </a>
     </div>
-    <nav class="flex flex-wrap gap-5">
-        <a class="underline-animated" href="/">Productos</a>
-        <a class="underline-animated" href="/">Nosotros</a>
-        <a class="underline-animated" href="/">Contacto</a>
-        <a class="underline-animated" href="/">Mi compra</a>
-        <a class="underline-animated" href="/">Mi cuenta</a>
+    <nav class="flex flex-wrap gap-40 text-xl m-16 text-white">
+        <a href="/">Contacto</a>
+        <a href="https://www.instagram.com/zoe.deco.home/" target="_blank"><Instagram class="text-white"/></a>
+        <a href="https://wa.me/5491165697756" target="_blank"><Whatsapp class="text-white"/></a>
     </nav>
 </footer>
 <style>
