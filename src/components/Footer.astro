@@ -2,7 +2,7 @@
 import Instagram from "./Icon/Instagram.astro";
 import Whatsapp from "./Icon/Whatsapp.astro";
 ---
-<footer class="relative flex w-full justify-around px-12 h-64 mt-10 bg-[#BF7D56] items-center">
+<footer class="relative flex w-full justify-around px-12 h-52 bg-[#BF7D56] items-center">
     
     <nav class="flex flex-wrap gap-32 text-xl m-16 text-white">
         <a href="#productosDestacados">Productos Destacados</a>
@@ -10,7 +10,7 @@ import Whatsapp from "./Icon/Whatsapp.astro";
     </nav>    
     <div>
         <a href="/">
-            <img src="/img/logo/Logo-zoe-blanco.png" alt="logo" width="200px">
+            <img src="/img/logo/Logo-zoe-blanco.png" alt="logo" width="150px">
         </a>
     </div>
     <nav class="flex flex-wrap gap-40 text-xl m-16 text-white">
@@ -19,46 +19,3 @@ import Whatsapp from "./Icon/Whatsapp.astro";
         <a href="https://wa.me/5491165697756" target="_blank"><Whatsapp class="text-white"/></a>
     </nav>
 </footer>
-<style>
-    @keyframes blur{
-        to{
-            color: white;
-            box-shadow: 0px 5px 50px -5px hsla(0, 0%, 100%, 0.1),
-            0px 0px 0px 1px hsla(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-        }
-    }
-
-    @keyframes underlineAnimation{
-        from{
-            width: 0;
-            opacity: 0;
-        }
-        to{
-            width: 100%;
-            opacity: 1;
-        }
-    }
-    .underline-animated{
-        position: relative;
-        display: inline-block;
-        text-decoration: none;
-        color: white;
-    }
-    .underline-animated::after{
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 2px;
-        background-color: currentColor;
-        width: 100%;
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
-        transform-origin: bottom left;
-    }
-    .underline-animated:hover::after{
-        transform: scaleX(1);
-        transform-origin: bottom left;
-    }
-</style>
