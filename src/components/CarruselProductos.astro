@@ -14,32 +14,36 @@ const { producto } = Astro.props;
             src=`/img/productos/Vela-${producto.id}.jpg`
             alt={producto.id}
         />
-    <span
-        class="absolute flex gap-2 top-3 left-4 border border-white text-xs rounded-xl px-4 py-2 font-semibold hover:bg-white hover:text-black text-white"
-    >Ver más</span>
-    <ArrowRight/>
+        <span
+            class="absolute flex gap-2 top-3 left-4 border border-white text-xs rounded-xl px-4 py-2 font-semibold hover:bg-white hover:text-black text-white"
+            >Ver más</span
+        >
+        <ArrowRight />
     </div>
-    <div class="flex flex-col gap-4" >
+    <div class="flex flex-col gap-4">
         <div class="gap-4">
-            <div class="flex items-center gap-2 justify-center" >
+            <div class="flex items-center gap-2 justify-center">
                 <!-- <Aroma class="leading-7 whitespace-normal"/> -->
-                <h5 class="capitalize font-semibold font-anek devanagari" >Aroma:</h5>
+                <h5 class="capitalize font-semibold font-anek devanagari">
+                    Aroma:
+                </h5>
                 <strong>{producto.aroma}</strong>
             </div>
-            <div class="flex items-center gap-2 justify-center" >
+            <div class="flex items-center gap-2 justify-center">
                 <!-- <Color class="leading-7 whitespace-normal"/> -->
                 <h5 class="capitalize font-semibold">Color:</h5>
                 <strong>{producto.color}</strong>
             </div>
-            <div class="flex items-center gap-2 justify-center" >
+            <div class="flex items-center gap-2 justify-center">
                 <!-- <Tamaño class="leading-7 whitespace-normal"/> -->
                 <h5 class="capitalize font-semibold">Tamaño:</h5>
                 <strong>{producto.tamaño}</strong>
             </div>
         </div>
     </div>
-    <div class="flex flex-col p-2 items-center gap-2 justify-center" >
-        <span class="text-2xl capitalize font-semibold" >${producto.precio}</span>
+    <div class="flex flex-col p-2 items-center gap-2 justify-center">
+        <span class="text-2xl capitalize font-semibold">${producto.precio}</span
+        >
     </div>
 </div>
 <style>
@@ -49,21 +53,21 @@ const { producto } = Astro.props;
         left: -75%;
         z-index: 2;
         display: block;
-        content: '';
+        content: "";
         width: 50%;
         height: 100%;
         background: linear-gradient(
             to right,
-            rgba(255,255,255,0)0%,
-            rgba(255,255,255,0.3)100%
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 100%
         );
         transform: skewX(-20deg);
     }
     .img-brillo img {
         transition: transform 0.5s;
     }
-    .img-brillo:hover{
-        img{
+    .img-brillo:hover {
+        img {
             transform: scale(1.1);
         }
     }

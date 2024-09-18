@@ -1,10 +1,14 @@
 ---
+
 ---
 
-<header class="fixed flex w-full justify-between px-12 h-28 items-center bg-[#F2E0D5]" id="nav-bar">
+<header
+    class="fixed flex w-full justify-between px-12 h-28 items-center bg-[#F2E0D5]"
+    id="nav-bar"
+>
     <div>
         <a href="/">
-            <img src="/img/logo/Logo-zoe.png" alt="logo" width="150px">
+            <img src="/img/logo/Logo-zoe.png" alt="logo" width="150px" />
         </a>
     </div>
     <nav class="flex flex-wrap gap-5">
@@ -22,32 +26,33 @@
         animation-timeline: scroll();
         animation-range: 0 500px;
     }
-    @keyframes blur{
-        to{
+    @keyframes blur {
+        to {
             color: white;
-            box-shadow: 0px 5px 50px -5px hsla(0, 0%, 100%, 0.1),
-            0px 0px 0px 1px hsla(0, 0, 0, 0.5);
+            box-shadow:
+                0px 5px 50px -5px hsla(0, 0%, 100%, 0.1),
+                0px 0px 0px 1px hsla(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
         }
     }
 
-    @keyframes underlineAnimation{
-        from{
+    @keyframes underlineAnimation {
+        from {
             width: 0;
             opacity: 0;
         }
-        to{
+        to {
             width: 100%;
             opacity: 1;
         }
     }
-    .underline-animated{
+    .underline-animated {
         position: relative;
         display: inline-block;
         text-decoration: none;
         color: black;
     }
-    .underline-animated::after{
+    .underline-animated::after {
         content: "";
         position: absolute;
         left: 0;
@@ -59,7 +64,7 @@
         transition: transform 0.3s ease;
         transform-origin: bottom left;
     }
-    .underline-animated:hover::after{
+    .underline-animated:hover::after {
         transform: scaleX(1);
         transform-origin: bottom left;
     }
