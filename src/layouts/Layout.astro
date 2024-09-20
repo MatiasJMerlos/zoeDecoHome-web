@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Swal from "sweetalert2";
 
 interface Props {
 	title: string;
@@ -38,7 +39,7 @@ const { title, description } = Astro.props;
 	html {
 		font-family: Dosis, sans-serif;
 		color: black;
-		background-color: #f2e0d5;
+		background-color: #f2e3d5;
 		background-size: 224px;
 		scroll-behavior: smooth;
 	}

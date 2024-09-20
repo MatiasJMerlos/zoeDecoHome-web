@@ -13,60 +13,84 @@ import ArrowRight from "../Icon/ArrowRight.astro";
             <span
                 class="absolute inset-0 flex flex-col items-center justify-center gap-20 text-6xl text-white mt-5"
             >
-                <a class="hover:scale-110 transition-all" href="#nombre"
+                <a class="hover:scale-110 transition-all" href="#username"
                     >PEDINOS TU PRESUPUESTO.</a
                 >
             </span>
         </div>
-        <div class="basis-1/2 border-solid bg-[#BF7D56] m-10 rounded-lg">
+        <div class="basis-1/2 border-solid bg-medioAlto m-10 rounded-lg">
             <h1
                 class="flex flex-wrap gap-32 text-4xl text-white items-center justify-center font-semibold m-5"
             >
                 ¡Comprá por mayor!
             </h1>
             <form
-                action="https://formsubmit.co/matiasjoaquinmerlos@gmail.com"
-                method="POST"
                 class="flex flex-col text-3xl m-10 items-center justify-center"
+                id="frm-email"
+                onreset="formulario"
             >
                 <label for="nombre"></label>
                 <input
-                    class="rounded-lg border-[#79818C] outline-none focus:border-[#F2E0D5] focus:ring-1 focus:ring-[#F2E0D5]"
+                    class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro"
                     type="text"
-                    name="nombre"
+                    name="username"
                     placeholder="Nombre"
                     size="50px"
-                    id="nombre"
+                    id="username"
                 />
                 <br />
                 <label for="email"></label>
                 <input
-                    class="rounded-lg border-[#79818C] outline-none focus:border-[#F2E0D5] focus:ring-1 focus:ring-[#F2E0D5]"
+                    class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro"
                     type="email"
                     name="email"
+                    id="email"
                     placeholder="Email"
                     size="50px"
                 />
                 <br />
                 <label for="mensaje"></label>
                 <textarea
-                    class="rounded-lg border-[#79818C] outline-none focus:border-[#F2E0D5] focus:ring-1 focus:ring-[#F2E0D5]"
-                    name="mensaje"
+                    class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro"
+                    name="msg"
+                    itemid="msg"
                     cols="50"
                     rows="4"
-                    id=""></textarea>
+                    id="msg"></textarea>
                 <br />
                 <input
-                    class="text-black text-2xl bg-white border-[#79818C] rounded-lg h-10 w-24 cursor-pointer hover:scale-110 transition-all"
+                    class="text-black text-2xl bg-white border-medioBajo rounded-lg h-10 w-24 cursor-pointer hover:scale-110 transition-all"
                     type="submit"
                     value="Enviar"
-                />
-                <input
-                    type="hidden"
-                    name="_next"
-                    value="http://localhost:4321/"
                 />
             </form>
         </div>
     </div>
 </section>
+<script>
+import Swal from "sweetalert2"
+import emailjs, { sendForm } from "@emailjs/browser"
+
+const frmEmail = document.getElementById('frm-email') as HTMLFormElement
+frmEmail.addEventListener('submit', sendEmail)
+
+const serviceId = 'service_8ryt2ap'
+const templateId = 'template_s9umz0d'
+const apiKey = 'eirM6edc-xYnky9uy'
+
+function sendEmail(event){
+	event.preventDefault()
+	emailjs.init(serviceId)
+
+    frmEmail.reset()
+	emailjs.sendForm(serviceId, templateId, frmEmail, apiKey)
+	.then( result => Swal.fire('Su mensaje se ha enviado con éxito. Responderemos su solicitud a la brevedad.'))
+	.catch( result => {
+		Swal.fire({
+			icon: 'error',
+			title: 'Oops...',
+			text: 'No ha sido posible enviar el mensaje!',
+		});
+	});
+}
+</script>
