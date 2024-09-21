@@ -1,5 +1,6 @@
 ---
-
+import Search from "./Icon/Search.astro"
+import User from "./Icon/User.astro"
 ---
 
 <header
@@ -11,15 +12,30 @@
             <img src="/img/logo/Logo-zoe.png" alt="logo" width="150px" />
         </a>
     </div>
-    <nav class="flex flex-wrap gap-5">
+    <nav class="flex flex-wrap gap-5 pl-[1000px] mt-10">
         <a class="underline-animated" href="/">Productos</a>
         <a class="underline-animated" href="/">Nosotros</a>
         <a class="underline-animated" href="/">Contacto</a>
         <a class="underline-animated" href="/">Mi compra</a>
-        <a class="underline-animated" href="/">Mi cuenta</a>
+        
     </nav>
+    <div class="w-1/7 max-auto mt-10">
+        <form action="">
+        <div class="relative shadow-md rounded-lg">
+        <input type="search" id="search" class="rounded-lg border-medioBajo outline-none focus:border-medioAlto focus:ring-1 focus:ring-medioAlto h-8">
+        <button type="submit" class="text-medioBajo text-lg px-2 rounded-lg absolute end-1 bottom-1 hover:text-medioAlto"><Search/></button>
+        </div>
+        </form>
+    </div>
+    <div class="text-medioBajo mt-10 hover:scale-110 transition-all hover:text-medioAlto" >
+        <a href="/"><User/></a>
+    </div>
 </header>
 <style>
+    .sinBorde:focus{
+                border: none;
+
+    }
     #nav-bar {
         z-index: 1;
         animation: blur linear both;

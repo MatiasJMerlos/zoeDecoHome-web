@@ -68,29 +68,37 @@ import ArrowRight from "../Icon/ArrowRight.astro";
     </div>
 </section>
 <script>
-import Swal from "sweetalert2"
-import emailjs, { sendForm } from "@emailjs/browser"
+    import Swal from "sweetalert2";
+    import emailjs, { sendForm } from "@emailjs/browser";
 
-const frmEmail = document.getElementById('frm-email') as HTMLFormElement
-frmEmail.addEventListener('submit', sendEmail)
+    const frmEmail = document.getElementById("frm-email") as HTMLFormElement;
+    frmEmail.addEventListener("submit", sendEmail);
 
-const serviceId = 'service_8ryt2ap'
-const templateId = 'template_s9umz0d'
-const apiKey = 'eirM6edc-xYnky9uy'
+    const serviceId = "service_8ryt2ap";
+    const templateId = "template_s9umz0d";
+    const apiKey = "eirM6edc-xYnky9uy";
 
-function sendEmail(event){
-	event.preventDefault()
-	emailjs.init(serviceId)
+    function sendEmail(event) {
+        event.preventDefault();
+        emailjs.init(serviceId);
 
-    frmEmail.reset()
-	emailjs.sendForm(serviceId, templateId, frmEmail, apiKey)
-	.then( result => Swal.fire('Su mensaje se ha enviado con éxito. Responderemos su solicitud a la brevedad.'))
-	.catch( result => {
-		Swal.fire({
-			icon: 'error',
-			title: 'Oops...',
-			text: 'No ha sido posible enviar el mensaje!',
-		});
-	});
-}
+        emailjs
+            .sendForm(serviceId, templateId, frmEmail, apiKey)
+            .then((result) =>
+                Swal.fire({
+                    icon: "success",
+                    text: "El mensaje se ha enviado con éxito. Responderemos su consulta a la brevedad.",
+                    confirmButtonColor: "#BFA995",
+                    confirmButtonText: "Ok!",
+                })
+            .catch((result) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "No ha sido posible enviar el mensaje!",
+                    });
+                }),
+            );
+        frmEmail.reset();
+    }
 </script>
