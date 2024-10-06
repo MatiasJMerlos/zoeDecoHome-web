@@ -37,6 +37,7 @@ import ArrowRight from "../Icon/ArrowRight.astro";
                     placeholder="Nombre"
                     size="50px"
                     id="username"
+                    required
                 />
                 <br />
                 <label for="email"></label>
@@ -47,6 +48,7 @@ import ArrowRight from "../Icon/ArrowRight.astro";
                     id="email"
                     placeholder="Email"
                     size="50px"
+                    required
                 />
                 <br />
                 <label for="mensaje"></label>
@@ -56,10 +58,12 @@ import ArrowRight from "../Icon/ArrowRight.astro";
                     itemid="msg"
                     cols="50"
                     rows="4"
-                    id="msg"></textarea>
+                    id="msg"
+                    required
+                    ></textarea>
                 <br />
                 <input
-                    class="text-black text-2xl bg-white border-medioBajo rounded-lg h-10 w-24 cursor-pointer hover:scale-110 transition-all"
+                    class="hover:text-black text-lg hover:bg-white rounded-lg h-10 w-96 cursor-pointer transition-all bg-medioBajo text-white"
                     type="submit"
                     value="Enviar"
                 />

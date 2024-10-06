@@ -1,0 +1,139 @@
+<div id="modal-user-component-container" class="hidden fixed inset-0">
+    <div
+        class="modal-user-flex-container flex items-end justify-center mt-40 pt-4 px-4 pb-20 text-center"
+    >
+        <div class="modal-user-bg-container fixed inset-0 bg-gray-700 bg-opacity-75">
+        </div>
+        <div class="modal-user-space-container inline-block align-middle"></div>
+        <div
+            class="modal-user-container inline-block align-bottom bg-white rounded-lg overflow-hidden shadow-xl transform transition-all"
+            id="modal-user-container"
+        >
+            <div class="modal-user-wrapper bg-white px-4 pt-5 pb-4 ">
+                <div class="modal-user-wrapper-flex">
+                    <div class="modal-user-content text-center mt-3">
+                        <h1 class="text-3xl">Crea tu nueva cuenta</h1>
+                        <form
+                            class="flex flex-col text-3xl m-10 items-center justify-center"
+                            id="frm-email"
+                            onreset="formulario"
+                        >
+                        <label for="nombre"></label>
+                        <input
+                            class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro mb-10"
+                            type="text"
+                            name="nombre"
+                            id="nombre"
+                            placeholder="Nombre y apellido"
+                            size="50px"
+                            required
+                        />
+                            <label for="email"></label>
+                            <input
+                                class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro mb-10"
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="Email"
+                                size="50px"
+                                required
+                            />
+                            <label for="telefono"></label>
+                        <input
+                            class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro mb-10"
+                            type="text"
+                            name="telefono"
+                            id="telefono"
+                            placeholder="Teléfono"
+                            size="50px"
+                            required
+                        />
+                            <label for="password"></label>
+                            <input
+                                class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro mb-10"
+                                type="password"
+                                name="password"
+                                placeholder="Contraseña"
+                                size="50px"
+                                id="password"
+                                required
+                            />
+                            <label for="passwordConfirm"></label>
+                            <input
+                                class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro"
+                                type="password"
+                                name="passwordConfirm"
+                                placeholder="Confirmar contraseña"
+                                size="50px"
+                                id="passwordConfirm"
+                                required
+                            />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-user-actions px-14 py-3 mb-10">
+                <button
+                    class="w-28 mt-0 ml-3 inline-flex justify-center rounded-md border text-white border-red-800 shadow-md px-4 py-2 bg-red-700 font-medium hover:text-black hover:bg-gray-50 transition-all" id="close-modal-user"
+                    >Cancelar</button
+                >
+                <button
+                    class="w-auto mt-0 ml-3 inline-flex justify-center rounded-md border border-medioBajo shadow-md px-4 py-2 bg-medioAlto font-medium hover:bg-gray-50 transition-all"
+                    >Crear cuenta</button
+                >
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .bg-user-fadeIn {
+        animation: fadeIn 0.5s ease-in forwards;
+        animation-iteration-count: 1;
+    }
+    .bg-user-fadeOut {
+        animation: fadeOut 0.5s ease-in forwards;
+        animation-iteration-count: 1;
+    }
+    .modal-user-scaleIn {
+        animation: scaleIn 0.3s ease-in forwards;
+        animation-iteration-count: 1;
+    }
+    .modal-user-scaleOut {
+        animation: scaleOut 0.3s ease-in forwards;
+        animation-iteration-count: 1;
+    }
+</style>
+<script>
+    const openButtonUser = document.querySelector("#open-modal-user");
+    const closeButtonUser = document.querySelector("#close-modal-user");
+    const modalUserContainer = document.querySelector("#modal-user-component-container");
+    const modalUser = document.querySelector("#modal-user-container");
+
+    openButtonUser.addEventListener("click", () => {
+        openModalUser();
+    });
+    closeButtonUser.addEventListener("click", () => {
+        closeModalUser();
+    });
+
+    function openModalUser() {
+        showAndHideUser(
+            modalUserContainer,
+            ["block", "bg-user-fadeIn"],
+            ["hidden", "bg-user-fadeOut"],
+        );
+        showAndHideUser(modalUser, ["modal-user-scaleIn"], ["modal-user-scaleOut"]);
+    }
+    function closeModalUser() {
+        showAndHideUser(modalUserContainer, ["bg-user-fadeOut"], ["bg-user-fadeIn"]);
+        showAndHideUser(modalUser, ["modal-user-scaleOut"], ["modal-user-scaleIn"]);
+
+        setTimeout(() => {
+            showAndHideUser(modalUserContainer, ["hidden"], ["block"]);
+        }, 500);
+    }
+    function showAndHideUser(element, classesToAdd, classesToRemove) {
+        element.classList.remove(...classesToRemove);
+        element.classList.add(...classesToAdd);
+    }
+</script>

@@ -1,0 +1,111 @@
+<div id="modal-component-container" class="hidden fixed inset-0">
+    <div
+        class="modal-flex-container flex items-end justify-center mt-60 pt-4 px-4 pb-20 text-center"
+    >
+        <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-75">
+        </div>
+        <div class="modal-space-container inline-block align-middle"></div>
+        <div
+            class="modal-container inline-block align-bottom bg-white rounded-lg overflow-hidden shadow-xl transform transition-all"
+            id="modal-container"
+        >
+            <div class="modal-wrapper bg-white px-4 pt-5 pb-4">
+                <div class="modal-wrapper-flex">
+                    <div class="modal-content text-center mt-3">
+                        <h1 class="text-3xl">Ingresa a tu cuenta</h1>
+                        <form
+                            class="flex flex-col text-3xl m-10 items-center justify-center"
+                            id="frm-email"
+                            onreset="formulario"
+                        >
+                            <label for="email"></label>
+                            <input
+                                class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro mb-10"
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="Email"
+                                size="50px"
+                                required
+                            />
+                            <label for="password"></label>
+                            <input
+                                class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro"
+                                type="password"
+                                name="password"
+                                placeholder="Contraseña"
+                                size="50px"
+                                id="password"
+                                required
+                            />
+                            <p class="text-base mt-2">¿No tienes cuenta?  <a href="/crearUsuario"><u> Crear cuenta</u></a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions px-14 py-3 mb-10">
+                <button
+                    class="w-28 mt-0 ml-3 inline-flex justify-center rounded-md border text-white border-red-800 shadow-md px-4 py-2 bg-red-700 font-medium hover:text-black hover:bg-gray-50 transition-all" id="close-modal"
+                    >Cancelar</button
+                >
+                <button
+                    class="w-auto mt-0 ml-3 inline-flex justify-center rounded-md border border-medioBajo shadow-md px-4 py-2 bg-medioAlto font-medium hover:bg-gray-50 transition-all"
+                    >Iniciar sesión</button
+                >
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .bg-fadeIn {
+        animation: fadeIn 0.5s ease-in forwards;
+        animation-iteration-count: 1;
+    }
+    .bg-fadeOut {
+        animation: fadeOut 0.5s ease-in forwards;
+        animation-iteration-count: 1;
+    }
+    .modal-scaleIn {
+        animation: scaleIn 0.3s ease-in forwards;
+        animation-iteration-count: 1;
+    }
+    .modal-scaleOut {
+        animation: scaleOut 0.3s ease-in forwards;
+        animation-iteration-count: 1;
+    }
+</style>
+<script>
+    const openButton = document.querySelector("#open-modal");
+    const closeButton = document.querySelector("#close-modal");
+    const modalContainer = document.querySelector("#modal-component-container");
+    const modal = document.querySelector("#modal-container");
+
+    openButton.addEventListener("click", () => {
+        openModal();
+    });
+    closeButton.addEventListener("click", () => {
+        closeModal();
+    });
+
+    function openModal() {
+        showAndHide(
+            modalContainer,
+            ["block", "bg-fadeIn"],
+            ["hidden", "bg-fadeOut"],
+        );
+        showAndHide(modal, ["modal-scaleIn"], ["modal-scaleOut"]);
+    }
+    function closeModal() {
+        showAndHide(modalContainer, ["bg-fadeOut"], ["bg-fadeIn"]);
+        showAndHide(modal, ["modal-scaleOut"], ["modal-scaleIn"]);
+
+        setTimeout(() => {
+            showAndHide(modalContainer, ["hidden"], ["block"]);
+        }, 500);
+    }
+    function showAndHide(element, classesToAdd, classesToRemove) {
+        element.classList.remove(...classesToRemove);
+        element.classList.add(...classesToAdd);
+    }
+</script>
+
