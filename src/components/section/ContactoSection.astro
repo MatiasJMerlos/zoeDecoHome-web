@@ -1,0 +1,124 @@
+---
+---
+<section class="pt-32 pb-2 bg-medioAlto">
+    <div class="flex flex-row gap-2">
+        <div class="basis-1/2 m-10 relative">
+            <img
+            class="absolute object-cover rounded-lg w-4/6 mt-10 ml-52"
+            src="/img/fotos/IMG-20210524-WA0023.jpg"
+            alt=""
+        />
+        </div>
+        <div class="basis-1/2 m-6 mr-40 relative">
+    <div class="text-center mt-10 mb-16" >
+        <h3 class="text-black text-6xl font-light" >Contactate con nosotros</h3>
+    </div>
+        <div class="text-center mt-10 mb-16">
+            <h5 class="text-black text-3xl font-light">Nuestro Whatsapp</h5>
+            <h5 class="text-black text-4xl font-light mt-4"><a
+            class="mt-14 hover:scale-110 transition-all"
+            href="https://wa.me/5491135074379"
+            target="_blank"
+            >+54 9 11 3507-4379</a></h5>
+        </div>
+        <div class="text-center mt-10 mb-16">
+            <h5 class="text-black text-3xl font-light">Nuestro Mail</h5>
+            <h5 class="text-black text-4xl font-light mt-4"><a
+            class="mt-14 hover:scale-110 transition-all"
+            href="mailto:zoe.deco.home@gmail.com"
+            target="_blank"
+            >zoe.deco.home@gmail.com</a></h5>
+        </div>
+        <div class="text-center mt-10 mb-16">
+            <h5 class="text-black text-3xl font-light">Nuestro Instagram</h5>
+            <h5 class="text-black text-4xl font-light mt-4"><a
+            class="mt-14 hover:scale-110 transition-all"
+            href="https://www.instagram.com/zoe.deco.home/"
+            target="_blank"
+            >@zoe.deco.home</a></h5>
+        </div>
+        <div class="text-center mt-10 mb-20  border-solid bg-medioAlto rounded-lg w-auto">
+            <h5 class="text-black text-3xl font-light">Formulario de contacto</h5>
+            <form
+                class="flex flex-col text-3xl m-10 items-center justify-center mb-10"
+                id="frm-email"
+                onreset="formulario"
+            >
+                <label for="nombre"></label>
+                <input
+                    class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro"
+                    type="text"
+                    name="username"
+                    placeholder="Nombre"
+                    size="50px"
+                    id="username"
+                    required
+                />
+                <br />
+                <label for="email"></label>
+                <input
+                    class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    size="50px"
+                    required
+                />
+                <br />
+                <label for="mensaje"></label>
+                <textarea
+                    class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro"
+                    name="msg"
+                    itemid="msg"
+                    cols="50"
+                    rows="4"
+                    id="msg"
+                    required
+                    ></textarea>
+                <br />
+                <input
+                    class="hover:text-black text-lg hover:bg-white rounded-lg h-10 w-96 cursor-pointer transition-all bg-medioBajo text-white"
+                    type="submit"
+                    value="Enviar"
+                />
+            </form>
+        </div>
+    </div>
+</div>    
+</section>
+<script>
+    import Swal from "sweetalert2";
+    import emailjs, { sendForm } from "@emailjs/browser";
+
+    const frmEmail = document.getElementById("frm-email") as HTMLFormElement;
+    frmEmail.addEventListener("submit", sendEmail);
+
+    const serviceId = "service_8ryt2ap";
+    const templateId = "template_s9umz0d";
+    const apiKey = "eirM6edc-xYnky9uy";
+
+    function sendEmail(event) {
+        event.preventDefault();
+        emailjs.init(serviceId);
+
+        emailjs
+            .sendForm(serviceId, templateId, frmEmail, apiKey)
+            .then((result) =>
+                Swal.fire({
+                    icon: "success",
+                    text: "El mensaje se ha enviado con éxito. Responderemos su consulta a la brevedad.",
+                    confirmButtonColor: "#BFA995",
+                    confirmButtonText: "Ok!",
+                })
+            .catch((result) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "No ha sido posible enviar el mensaje!",
+                    });
+                }),
+            );
+        frmEmail.reset();
+    }
+</script>

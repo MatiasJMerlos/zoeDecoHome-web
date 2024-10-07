@@ -1,12 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CarruselProductos from "../components/CarruselProductos.astro";
+import { productos } from "../data/productos";
+
+const carruselProductos = [...productos, ...productos];
+const { producto } = Astro.props;
 ---
 
 <Layout
     title="Productos"
     description="Tienda de artículos de decoración"
 >
-    <div class="h-screen inset-0 flex flex-col items-center justify-center gap-20 bg-medioAlto">
-        <h1 class="text-black text-8xl">PRÓXIMAMENTE</h1>
+<section class="pt-32 bg-medioAlto">
+    <div class="text-center mt-10 mb-16" >
+        <h3 class="text-black text-6xl font-light" >Productos</h3>
     </div>
+    <article class="flex justify-center">
+        <div class="grid grid-cols-3 mb-4">
+            {
+                carruselProductos.map((producto) => (
+                    <CarruselProductos producto={producto} />
+                ))
+            }
+        </div>
+    </article>
+</section>
 </Layout>
