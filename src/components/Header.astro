@@ -1,4 +1,5 @@
 ---
+import Carrito from "./Icon/Carrito.astro"
 import Search from "./Icon/Search.astro"
 import User from "./Icon/User.astro"
 ---
@@ -12,13 +13,13 @@ import User from "./Icon/User.astro"
             <img src="/img/logo/Logo-zoe.png" alt="logo" width="150px" />
         </a>
     </div>
-    <nav class="flex flex-wrap gap-5 ml-[1050px] mt-10">
-        <a class="underline-animated" href="/productos">Productos</a>
-        <a class="underline-animated" href="/nosotros">Nosotros</a>
-        <a class="underline-animated" href="/contacto">Contacto</a>
-        <a class="underline-animated" href="/miCompra">Mi compra</a>
+    <nav class="flex flex-wrap gap-14 ml-[950px] mt-8">
+        <a class="hover:scale-110 transition-all text-black hover:text-medioAlto text-lg font-medium" href="/productos">Productos</a>
+        <a class="hover:scale-110 transition-all text-black hover:text-medioAlto text-lg font-medium" href="/nosotros">Nosotros</a>
+        <a class="hover:scale-110 transition-all text-black hover:text-medioAlto text-lg font-medium" href="/contacto">Contacto</a>
+        
     </nav>
-    <div class="w-1/7 max-auto mt-10 ml-4">
+    <div class="w-1/7 max-auto mt-8 ml-4">
         <form action="">
         <div class="relative shadow-md rounded-lg">
         <input type="search" id="search" class="rounded-lg border-medioBajo outline-none focus:border-medioAlto focus:ring-1 focus:ring-medioAlto h-8">
@@ -26,7 +27,8 @@ import User from "./Icon/User.astro"
         </div>
         </form>
     </div>
-    <nav class="text-medioBajo mt-2 hover:scale-110 transition-all hover:text-medioAlto" data-id="menu" >
+    <div class="w-1/7 max-auto mt-8 ml-4 hover:scale-110 transition-all"><a class="text-medioBajo transition-all hover:text-medioAlto" href="/miCompra"><Carrito/></a></div>
+    <nav class="text-medioBajo mt-4 -mr-4 hover:text-medioAlto transition-all" data-id="menu" >
         <ul>
             <li class="link-parent">
                 <a href="#" class="flex justify-center" data-dropdown><User/></a>
