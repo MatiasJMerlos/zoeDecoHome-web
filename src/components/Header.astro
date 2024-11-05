@@ -1,50 +1,10 @@
 ---
-import Carrito from "./Icon/Carrito.astro"
-import Search from "./Icon/Search.astro"
-import User from "./Icon/User.astro"
+import Carrito from "./Icon/Carrito.astro";
+import Cruz from "./Icon/Cruz.astro";
+import Search from "./Icon/Search.astro";
+import User from "./Icon/User.astro";
 ---
-<!-- import { productos } from "../data/productos";
 
-
-    const buttonSearch = document.querySelector("#btn-search")
-
-    buttonSearch.addEventListener("click", () => {
-        buscar();
-    });    
-
-    function buscar() {
-
-        let query = (document.getElementById("search") as HTMLInputElement).value;
-
-        console.log(query);
-
-        if(query.trim() === ""){
-            return;
-        }
-
-        let results = [];
-
-        for(let i = 0; i < {productos.tipo}.length; i++ ){
-            if(productos[i].toLowerCase().includes(query.toLowerCase())){
-                results.push({productos.tipo}[i]);
-            }
-        }
-
-        document.getElementById("results").innerHTML = "";
-
-        if(results.length > 0){
-            for(let i = 0; i < results.length; i++){
-                let li = document.createElement("li");
-                li.textContent = results[i];
-                document.getElementById("results").appendChild(li);
-            }
-        }
-        else{
-            let li = document.createElement("li");
-            li.textContent = "No se encontraron productos para: " + query;
-            document.getElementById("results").appendChild(li);
-        }
-    } -->
 <header
     class="fixed flex w-full justify-between px-10 h-32 items-center bg-claro border border-b-medioBajo"
     id="nav-bar"
@@ -55,23 +15,54 @@ import User from "./Icon/User.astro"
         </a>
     </div>
     <nav class="flex flex-wrap gap-14 ml-[950px] mt-10">
-        <a class="hover:scale-110 transition-all text-black hover:text-medioAlto text-lg font-medium" href="/productos">Productos</a>
-        <a class="hover:scale-110 transition-all text-black hover:text-medioAlto text-lg font-medium" href="/nosotros">Nosotros</a>
-        <a class="hover:scale-110 transition-all text-black hover:text-medioAlto text-lg font-medium" href="/contacto">Contacto</a>
-        
+        <a
+            class="hover:scale-110 transition-all text-black hover:text-medioAlto text-lg font-medium"
+            href="/productos">Productos</a
+        >
+        <a
+            class="hover:scale-110 transition-all text-black hover:text-medioAlto text-lg font-medium"
+            href="/nosotros">Nosotros</a
+        >
+        <a
+            class="hover:scale-110 transition-all text-black hover:text-medioAlto text-lg font-medium"
+            href="/contacto">Contacto</a
+        >
     </nav>
     <div class="w-1/7 max-auto mt-10 ml-4">
         <div class="relative shadow-md rounded-lg">
-        <input type="text" id="search" class="rounded-lg border-medioBajo outline-none focus:border-medioAlto focus:ring-1 focus:ring-medioAlto h-8">
-        <button id="btn-search" class="text-medioBajo text-lg px-2 rounded-lg absolute end-1 bottom-1 hover:text-medioAlto"><Search/></button>
+            <input
+                type="text"
+                id="search"
+                class="rounded-lg border-medioBajo outline-none focus:border-medioAlto focus:ring-1 focus:ring-medioAlto h-8"
+            />
+            <button
+                id="btn-search"
+                class="text-medioBajo text-lg px-2 rounded-lg absolute end-4 bottom-1 hover:text-medioAlto"
+                ><Search /></button
+            >
+            <button
+                id="btn-delete"
+                type="reset"
+                class="text-medioBajo text-lg  rounded-lg absolute end-1 bottom-1 mb-1 hover:text-medioAlto"
+                ><Cruz /></button
+            >
         </div>
-        <ul id="results"></ul>
+        <div class="absolute px-3 bg-white rounded-lg w-44 my-2"><ul id="results"></ul></div>
     </div>
-    <div class="w-1/7 max-auto mt-10 ml-4 hover:scale-110 transition-all"><a class="text-black transition-all hover:text-medioAlto" href="/miCompra"><Carrito/></a></div>
-    <nav class="text-black mt-6 -mr-4 hover:text-medioAlto transition-all" data-id="menu" >
+    <div class="w-1/7 max-auto mt-10 ml-4 hover:scale-110 transition-all">
+        <a
+            class="text-black transition-all hover:text-medioAlto"
+            href="/miCompra"><Carrito /></a>
+    </div>
+    <nav
+        class="text-black mt-6 -mr-4 hover:text-medioAlto transition-all"
+        data-id="menu"
+    >
         <ul>
             <li class="link-parent">
-                <a href="#" class="flex justify-center" data-dropdown><User/></a>
+                <a href="#" class="flex justify-center" data-dropdown
+                    ><User /></a
+                >
                 <ul class="link-child">
                     <li class="hover:text-medioAlto">
                         <a href="#" id="open-modal">Iniciar sesión</a>
@@ -85,9 +76,8 @@ import User from "./Icon/User.astro"
     </nav>
 </header>
 <style>
-    .sinBorde:focus{
-                border: none;
-
+    .sinBorde:focus {
+        border: none;
     }
     #nav-bar {
         z-index: 1;
@@ -143,27 +133,77 @@ import User from "./Icon/User.astro"
         cursor-pointer data-[toggle]:grid-rows-[max-content_1fr];
     }
     .link-child {
-        @apply overflow-hidden text-black text-sm
+        @apply overflow-hidden text-black text-sm;
     }
-
 </style>
 <script>
     const navigation = document.querySelector("[data-id='menu']");
 
-    navigation.addEventListener("click", function(e){
-
+    navigation.addEventListener("click", function (e) {
         const currentElement = e.target as HTMLElement;
 
-        if(currentElement.matches('[data-dropdown],[data-dropdown] *')){
-                    
+        if (currentElement.matches("[data-dropdown],[data-dropdown] *")) {
             const parentLi = currentElement.closest("li");
-            
-            if( parentLi.matches("[data-toggle]")){
+
+            if (parentLi.matches("[data-toggle]")) {
                 parentLi.removeAttribute("data-toggle");
-            }else{
+            } else {
                 parentLi.setAttribute("data-toggle", "");
             }
-            
         }
     });
+
+    import { productos } from "../data/productos";
+
+    const buttonSearch = document.querySelector("#btn-search");
+
+    buttonSearch.addEventListener("click", buscar);
+
+    const buttonDelete = document.querySelector("#btn-delete");
+
+    buttonDelete.addEventListener("click", eliminar)
+
+    function eliminar() {
+                
+                document.getElementById("results").innerHTML = "";
+    }
+
+    function buscar() {
+        let query = (document.getElementById("search") as HTMLInputElement)
+            .value;
+
+        console.log(query);
+
+        if (query.trim() === "") {
+            return;
+        }
+
+        let results = [];
+
+        for (let i = 0; i < productos.length; i++) {
+            if (productos[i].categoria.toLowerCase().includes(query.toLowerCase()) || 
+                productos[i].nombre.toLowerCase().includes(query.toLowerCase()) ||
+                productos[i].aroma.toLowerCase().includes(query.toLowerCase()) ||
+                productos[i].color.toLowerCase().includes(query.toLowerCase()) ||
+                productos[i].tamaño.toLowerCase().includes(query.toLowerCase())) {
+                results.push(productos[i].id + " - " + productos[i].nombre);
+            }
+        }
+
+        document.getElementById("results").innerHTML = "";
+
+        if (results.length > 0) {
+            for (let i = 0; i < results.length; i++) {
+                let a = document.createElement("a");
+                a.setAttribute("class", "flex hover:text-medioAlto transition-all text-lg font-medium");
+                a.setAttribute("href", "/productos");
+                a.textContent = results[i];
+                document.getElementById("results").appendChild(a);
+            }
+        } else {
+            let a = document.createElement("a");
+            a.textContent = "No se encontraron productos para: " + query;
+            document.getElementById("results").appendChild(a);
+        }
+    }
 </script>

@@ -1,7 +1,9 @@
 export const productos = [
     {
         id: 1,
-        tipo: "velas",
+        imagen: "",
+        nombre: "ZOE",
+        categoria: "velas",
         aroma: "Jardín de Rosas",
         color: "Rosa",
         tamaño: "Mediana",
@@ -9,7 +11,9 @@ export const productos = [
     },
     {
         id: 2,
-        tipo: "velas",
+        imagen: "",
+        nombre: "KARA",
+        categoria: "velas",
         aroma: "Manzana y Canela",
         color: "Negro",
         tamaño: "Mediana",
@@ -17,7 +21,9 @@ export const productos = [
     },
     {
         id: 3,
-        tipo: "velas",
+        imagen: "",
+        nombre: "JADA",
+        categoria: "velas",
         aroma: "Vainilla Caramelo",
         color: "Traslúcido",
         tamaño: "Pequeña",
@@ -25,7 +31,9 @@ export const productos = [
     },
     {
         id: 4,
-        tipo: "velas",
+        imagen: "",
+        nombre: "UMA",
+        categoria: "velas",
         aroma: "Jardín de Rosas",
         color: "Negro",
         tamaño: "Mediana",
@@ -33,7 +41,9 @@ export const productos = [
     },
     {
         id: 5,
-        tipo: "velas",
+        imagen: "",
+        nombre: "MUNA",
+        categoria: "velas",
         aroma: "Manzana y Canela",
         color: "Blanco",
         tamaño: "Pequeña",
@@ -41,7 +51,9 @@ export const productos = [
     },
     {
         id: 6,
-        tipo: "velas",
+        imagen: "",
+        nombre: "FRANCCESCA",
+        categoria: "velas",
         aroma: "Vainilla Caramelo",
         color: "Traslúcido",
         tamaño: "Mediana",
@@ -49,7 +61,9 @@ export const productos = [
     },
     {
         id: 7,
-        tipo: "velas",
+        imagen: "",
+        nombre: "ZAYA",
+        categoria: "velas",
         aroma: "Vainilla Caramelo",
         color: "Blanco",
         tamaño: "Grande",
