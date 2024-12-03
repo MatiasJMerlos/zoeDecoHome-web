@@ -6,15 +6,31 @@ import User from "./Icon/User.astro";
 ---
 
 <header
-    class="fixed flex w-full justify-between px-10 h-32 items-center bg-claro border border-b-medioBajo"
+    class="fixed flex-col w-full px-10 h-48 bg-claro border border-b-medioBajo"
     id="nav-bar"
 >
-    <div class="ml-2">
+    <div class="ml-2 flex">
         <a href="/">
             <img src="/img/logo/Logo-zoe.png" alt="logo" width="180px" />
         </a>
+        <div class="flex items-center ml-72 ">
+        <a class="mt-10 mr-5 text-black transition-all hover:text-medioAlto"
+                href="/miCompra"><Carrito /></a>
+                <nav
+                class="text-black mt-6 -mr-4 hover:text-medioAlto transition-all"
+                data-id="menu"
+            >
+                <ul>
+                    <li class="link-parent">
+                        <a href="src/components/ModalLogin.astro" class="flex justify-center" data-dropdown
+                            ><User /></a
+                        >
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-    <nav class="flex flex-wrap gap-14 ml-[950px] mt-10">
+    <nav class="flex flex-row justify-evenly gap-8 mt-2">
         <a
             class="hover:scale-110 transition-all text-black hover:text-medioAlto text-lg font-medium"
             href="/productos">Productos</a
@@ -28,7 +44,7 @@ import User from "./Icon/User.astro";
             href="/contacto">Contacto</a
         >
     </nav>
-    <div class="w-1/7 max-auto mt-10 ml-4">
+    <div class="w-1/7 max-auto mt-10 ml-4" hidden>
         <div class="relative shadow-md rounded-lg">
             <input
                 type="text"
@@ -49,13 +65,13 @@ import User from "./Icon/User.astro";
         </div>
         <div class="absolute px-3 bg-white rounded-md w-44 my-2"><ul class="grid grid-cols-2" id="results"></ul></div>
     </div>
-    <div class="w-1/7 max-auto mt-10 ml-4 hover:scale-110 transition-all">
+    <div class="w-1/7 max-auto mt-10 ml-4 hover:scale-110 transition-all hidden">
         <a
             class="text-black transition-all hover:text-medioAlto"
             href="/miCompra"><Carrito /></a>
     </div>
     <nav
-        class="text-black mt-6 -mr-4 hover:text-medioAlto transition-all"
+        class="text-black mt-6 -mr-4 hover:text-medioAlto transition-all hidden"
         data-id="menu"
     >
         <ul>

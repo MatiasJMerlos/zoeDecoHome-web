@@ -4,37 +4,41 @@ import Whatsapp from "./Icon/Whatsapp.astro";
 ---
 
 <footer
-    class="relative w-full px-20 h-50 bg-medioAlto items-center"
+    class="relative w-full px-10 h-50 bg-medioAlto items-center justify-center"
 >
 <div>
-    <nav class="flex justify-between text-2xl text-white font-medium pt-5">
-        <a class="mt-14 mx-[-26px] hover:scale-110 transition-all" href="/productos"
+    <nav class="flex text-lg text-white font-medium pt-2">
+        <div class="flex-col justify-center items-center m-3 ml-6 hidden">
+        <a class="hover:scale-110 transition-all" href="/productos"
             >Productos</a
         >
-        <a class="mt-14 mx-[-26px] hover:scale-110 transition-all" href="/nosotros">Nosotros</a>
-        <a class="mt-14 mx-[-26px] hover:scale-110 transition-all" href="/contacto#medios-pago">Medios de pago</a>
-        <a href="/" class="mb-5">
+        <a class="hover:scale-110 transition-all" href="/nosotros">Nosotros</a>
+        <a class="hover:scale-110 transition-all" href="/contacto#medios-pago">Medios de pago</a>
+        </div>
+        <a href="/" class="flex justify-center items-center ml-48">
             <img
                 class="hover:scale-110 transition-all"
                 src="/img/logo/Logo-zoe-blanco.png"
                 alt="logo"
-                width="200px"
+                width="180px"
             />
         </a>
-        <a class="mt-14 hover:scale-110 transition-all" href="/contacto">Contacto</a>
+        <div class="flex-col justify-center items-center ml-20 hidden">
+        <a class="mt-7 hover:scale-110 transition-all" href="/contacto">Contacto</a>
         <a
-            class="mt-14 hover:scale-110 transition-all"
+            class="hover:scale-110 transition-all"
             href="https://www.instagram.com/zoe.deco.home/"
             target="_blank"
             ><Instagram class="text-white hover:text-[#fccc63]" /></a
         >
         <a
-            class="mt-14 hover:scale-110 transition-all"
+            class="hover:scale-110 transition-all"
             href="https://wa.me/5491135074379"
             target="_blank"
             ><Whatsapp class="text-white hover:text-[#00bb2d]" /></a
         >
+        </div>
     </nav>
 </div>    
-    <div class="flex text-white justify-center items-center"><p class="mb-4">Copyright Zoe Deco&Home - 2024. Todos los derechos reservados. Defensa de las y los consumidores. Para reclamos &nbsp<u><a href="https://autogestion.produccion.gob.ar/consumidores" target="_blank"> ingresá acá.</a></u></p></div>
+    <div class="flex text-white justify-center items-center text-xs text-center"><p class="mb-4">Copyright Zoe Deco&Home - 2024. Todos los derechos reservados. Defensa de las y los consumidores. Para reclamos &nbsp<u><a href="https://autogestion.produccion.gob.ar/consumidores" target="_blank"> ingresá acá.</a></u></p></div>
 </footer>
