@@ -7,93 +7,86 @@ const carruselProductos = [...productos];
 const { producto } = Astro.props;
 ---
 
-<Layout
-    title="Productos"
-    description="Tienda de artículos de decoración"
->
-<section class="pt-32 bg-claro">
-    <div class="text-center mt-10 mb-16" >
-        <h3 class="text-black text-6xl font-light" >Productos</h3>
-    </div>
-    <div class="store-wrapper">
-        <div class="category_list flex justify-center mb-10">
-            <a href="#" id="all" class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item">Todo</a>
-            <a href="#" id="vela" class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item">Velas</a>
-            <a href="#" id="difusor" class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item">Difusores</a>
-            <a href="#" id="refill" class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item">Refill</a>
-            <a href="#" id="macrame" class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item">Macramé</a>
-            <a href="#" id="ceramica" class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item">Cerámica</a>
+<Layout title="Productos" description="Tienda de artículos de decoración">
+    <section class="pt-32 bg-claro">
+        <div class="text-center mt-10 mb-16">
+            <h3 class="text-black text-6xl font-light">Productos</h3>
         </div>
-    </div>
-    <article class="flex justify-center">
-        <div class="grid grid-cols-3 mb-4" id="vela">
-            {
+        <div class="store-wrapper" >
+            <div class="category_list flex justify-center mb-10">
+                <a
+                    href="#"
+                    id="all"
+                    class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item"
+                    >Todo</a
+                >
+                <a
+                    href="#"
+                    id="vela"
+                    class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item"
+                    >Velas</a
+                >
+                <a
+                    href="#"
+                    id="difusor"
+                    class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item"
+                    >Difusores</a
+                >
+                <a
+                    href="#"
+                    id="refill"
+                    class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item"
+                    >Refill</a
+                >
+                <a
+                    href="#"
+                    id="macrame"
+                    class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item"
+                    >Macramé</a
+                >
+                <a
+                    href="#"
+                    id="ceramica"
+                    class="px-10 hover:scale-110 transition-all text-black hover:text-medioAlto category_item"
+                    >Cerámica</a
+                >
+            </div>
+        </div>
+        <article class="flex justify-center" >
+            <div class="grid grid-cols-3 mb-4" id="vela">
+                {
                 carruselProductos.map((producto) => (
                     <CarruselProductos producto={producto} />
                 ))
             }
-        </div>
-    </article>
-</section>
+            </div>
+        </article>
+    </section>
 </Layout>
 <style>
-    .category_list .ct_item-active{
+    .category_list .ct_item-active {
         color: black;
         font-weight: bold;
-        font-size:larger;
+        font-size: larger;
     }
 </style>
 <script>
-import Layout from "../layouts/Layout.astro";
-import CarruselProductos from "../components/CarruselProductos.astro";
-import { productos } from "../data/productos";
-const { producto } = Astro.props;
+    import { productos } from "../data/productos";
 
-    // const displayProducts = () => {
-    //     const vela = document.getElementById("vela")
+    const vela = document.querySelector("#vela");
 
-    //     productos.forEach(producto => {
-    //         const div = document.createElement("div")
-    //         div.className = 'card-products'
-    //         div.innerHTML = `
-    //             <img src="${producto.imagen}" alt="1">
-    //             <h3>${producto.nombre}</h3>
-    //             <p class="price">$ ${producto.precio}</p>
-    //         `
-    //         vela.append(div)
-    //     })
-    // }
-    // displayProducts()
+    document.addEventListener("DOMContentLoaded", () => {
+        mostrarProductos();
 
-    const filterProducts = (categoria) => {
-        const productsToShow = productos.filter(producto => producto.categoria === categoria)
-    }
-    
-    const carruselProductos = [...productos];
-    const todosBtn = document.getElementById("all");
-    const velasBtn = document.getElementById("vela");
-    const difusorBtn = document.getElementById("difusor");
-    const refillBtn = document.getElementById("refill");
-    const macrameBtn = document.getElementById("macramé");
-    const ceramicaBtn = document.getElementById("ceramica");
+        function mostrarProductos() {
+            productos.forEach((producto) => {
+                const productoHTML = document.createElement("");
+                productoHTML.textContent = `
+            ${producto.nombre}
+        `;
 
-    todosBtn.addEventListener("click", () => {
-        filterProducts("vela, difusor, refill, macrame, ceramica")
+                vela.appendChild(productoHTML);
+            });
+        }
     });
-    velasBtn.addEventListener("click", () => {
-        filterProducts("vela");
-    });
-    difusorBtn.addEventListener("click", () => {
-        filterProducts("difusor");
-    });
-    refillBtn.addEventListener("click", () => {
-        filterProducts("refill");
-    });
-    macrameBtn.addEventListener("click", () => {
-        filterProducts("macrame");
-    });
-    ceramicaBtn.addEventListener("click", () => {
-        filterProducts("ceramica");
-    });
-
 </script>
