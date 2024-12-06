@@ -7,7 +7,7 @@ import Tamaño from "./Icon/Tamaño.astro";
 const { producto } = Astro.props;
 ---
 
-<div id="carrusel" class="h-full w-[280px] m-2 flex-shrink-0 cursor-pointer">
+<!-- <div id="carrusel" class="h-full w-[280px] m-2 flex-shrink-0 cursor-pointer">
     <div class="rounded-3xl overflow-hidden mb-4 h-[250px] relative img-brillo">
         <a href=""><img
             class="size-[100%] object-cover absolute top-0 left-0"
@@ -18,18 +18,18 @@ const { producto } = Astro.props;
             class="absolute flex gap-2 top-3 left-4 border border-white text-xs rounded-xl px-4 py-2 font-semibold hover:bg-white hover:text-black text-white"
             ><a href="">Ver más</a></span
         > -->
-    </div>
+    <!-- </div>
     <div class="flex flex-col gap-4">
         <div class="gap-4">
-            <div class="flex items-center gap-2 justify-center">
+            <div class="flex items-center gap-2 justify-center"> -->
                 <!-- <Aroma class="leading-7 whitespace-normal"/> -->
                 <!-- <h5 class="capitalize font-semibold font-anek devanagari">
                     {producto.categoria}
                 </h5> -->
-                <strong>{producto.nombre}</strong>
+                <!-- <strong>{producto.nombre}</strong>
                 <h5 class="capitalize font-semibold font-anek devanagari">{producto.tamaño}</h5>
                 <h5 class="capitalize font-semibold font-anek devanagari">{producto.color}</h5>
-            </div>
+            </div> -->
             <!-- <div class="flex items-center gap-2 justify-center">-->
                 <!-- <Color class="leading-7 whitespace-normal"/> -->
                 <!-- <h5 class="capitalize font-semibold">Color</h5>
@@ -40,12 +40,19 @@ const { producto } = Astro.props;
                 <!-- <h5 class="capitalize font-semibold">Tamaño</h5>
                 <strong>{producto.tamaño}</strong>
             </div>  -->
-        </div>
+        <!-- </div>
     </div>
     <div class="flex flex-col p-2 items-center gap-2 justify-center">
         <span class="text-2xl capitalize font-semibold">${producto.precio}</span
         >
     </div>
+    <div class="flex items-center justify-center">
+        <a class="text-center my-4 sm:mt-8 mx-2 font-semibold text-xl hover:bg-white rounded-lg h-10 w-full cursor-pointer hover:scale-105 transition-all bg-medioAlto text-black border border-medioBajo"
+        href=`https://wa.me/5491135074379?text=Hola,%20quisiera%20realizar%20la%20compra%20del%20siguiente%20producto:%20${encodeURIComponent(producto.nombre)}%20${encodeURIComponent(producto.tamaño)}%20${encodeURIComponent(producto.color)}%20$${encodeURIComponent(producto.precio)}`
+        target="_blank"
+        >Comprar    
+        </a>
+    </div>    
 </div>
 <style>
     .img-brillo::after {
@@ -80,4 +87,61 @@ const { producto } = Astro.props;
             left: 125%;
         }
     }
+</style> -->
+
+<div id="carrusel" class="h-full w-full sm:w-[280px] m-2 flex-shrink-0 cursor-pointer">
+    <div class="rounded-3xl overflow-hidden mb-4 h-[250px] relative img-brillo">
+        <a href=""><img
+            class="w-full h-full object-cover absolute top-0 left-0"
+            src=`/img/productos/Vela-${producto.id}.jpg`
+            alt="${producto.id}"
+        /></a>
+    </div>
+    <div class="flex flex-col gap-4">
+        <div class="gap-4">
+            <div class="flex items-center gap-2 justify-center">
+                <strong class="text-center">{producto.nombre}</strong>
+                <h5 class="capitalize font-semibold font-anek devanagari">{producto.tamaño}</h5>
+                <h5 class="capitalize font-semibold font-anek devanagari">{producto.color}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col p-2 items-center gap-2 justify-center">
+        <span class="text-2xl capitalize font-semibold">${producto.precio}</span>
+    </div>
+    <div class="flex items-center justify-center">
+        <a class="text-center my-4 sm:mt-8 mx-2 font-semibold text-xl hover:bg-white rounded-lg h-10 w-full cursor-pointer hover:scale-105 transition-all bg-medioAlto text-black border border-medioBajo"
+        href=`https://wa.me/5491135074379?text=Hola,%20quisiera%20realizar%20la%20compra%20del%20siguiente%20producto:%20${encodeURIComponent(producto.nombre)}%20${encodeURIComponent(producto.tamaño)}%20${encodeURIComponent(producto.color)}%20$${encodeURIComponent(producto.precio)}`
+        target="_blank"
+        >Comprar    
+        </a>
+    </div>    
+</div>
+
+<style>
+    .img-brillo::after {
+        position: absolute;
+        top: 0;
+        left: -75%;
+        z-index: 2;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 100%
+        );
+        transform: skewX(-20deg);
+    }
+    .img-brillo img {
+        transition: transform 0.5s;
+    }
+    .img-brillo:hover {
+        img {
+            transform: scale(1.1);
+        }
+    }
 </style>
+

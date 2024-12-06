@@ -2,8 +2,56 @@
 import Instagram from "./Icon/Instagram.astro";
 import Whatsapp from "./Icon/Whatsapp.astro";
 ---
+<footer class="relative w-full px-6 sm:px-10 md:px-20 bg-medioAlto items-center ">
+    <div class="flex items-center justify-center">
+        <a href="/" class="mt-2 mb-2 sm:mb-4 ">
+            <img
+                class="hover:scale-110 transition-all mx-auto md:mx-0 w-[150px] sm:w-[180px] md:w-[200px]"
+                src="/img/logo/Logo-zoe-blanco.png"
+                alt="logo"
+            />
+        </a>
+    </div>
+    <div>
+        <nav class="flex flex-wrap justify-center md:justify-between text-lg sm:text-xl md:text-2xl text-white font-medium pt-5 gap-4 mb-10">
+            <a class="mt-4 sm:mt-8 mx-2 hover:scale-110 transition-all" href="/productos">Productos</a>
+            <a class="mt-4 sm:mt-8 mx-2 hover:scale-110 transition-all" href="/nosotros">Nosotros</a>
+            <a class="mt-4 sm:mt-8 mx-2 hover:scale-110 transition-all" href="/contacto#medios-pago">Medios de pago</a>
+            <a class="mt-4 sm:mt-8 mx-2 hover:scale-110 transition-all" href="/contacto">Contacto</a>
+            <a
+                class="mt-4 sm:mt-8 mx-2 hover:scale-110 transition-all"
+                href="https://www.instagram.com/zoe.deco.home/"
+                target="_blank"
+            >
+                <Instagram class="text-white hover:text-[#fccc63]" />
+            </a>
+            <a
+                class="mt-4 sm:mt-8 mx-2 hover:scale-110 transition-all"
+                href="https://wa.me/5491135074379"
+                target="_blank"
+            >
+                <Whatsapp class="text-white hover:text-[#00bb2d]" />
+            </a>
+        </nav>
+    </div>    
+    <div class="flex flex-col sm:flex-row text-white justify-center items-center text-center px-4 sm:px-0">
+        <p class="mb-4 text-sm sm:text-base md:text-lg">
+            Copyright Zoe Deco&Home - 2024. Todos los derechos reservados. 
+            Defensa de las y los consumidores. Para reclamos &nbsp;
+            <u>
+                <a 
+                    href="https://autogestion.produccion.gob.ar/consumidores" 
+                    target="_blank" 
+                    class="underline hover:text-[#fccc63]"
+                >
+                    ingresá acá.
+                </a>
+            </u>
+        </p>
+    </div>
+</footer>
 
-<footer
+<!-- <footer
     class="relative w-full px-20 h-50 bg-medioAlto items-center"
 >
 <div>
@@ -37,4 +85,4 @@ import Whatsapp from "./Icon/Whatsapp.astro";
     </nav>
 </div>    
     <div class="flex text-white justify-center items-center"><p class="mb-4">Copyright Zoe Deco&Home - 2024. Todos los derechos reservados. Defensa de las y los consumidores. Para reclamos &nbsp<u><a href="https://autogestion.produccion.gob.ar/consumidores" target="_blank"> ingresá acá.</a></u></p></div>
-</footer>
+</footer> -->

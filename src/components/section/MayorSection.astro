@@ -2,7 +2,7 @@
 import ArrowRight from "../Icon/ArrowRight.astro";
 ---
 
-<section class="mb-8">
+<!-- <section class="mb-8">
     <div class="flex flex-row gap-2">
         <div class="basis-3/5 m-10 relative">
             <img
@@ -17,7 +17,7 @@ import ArrowRight from "../Icon/ArrowRight.astro";
                     >PEDINOS TU PRESUPUESTO.</a
                 >
             </span> -->
-        </div>
+        <!-- </div>
         <div class="basis-2/5 border-solid bg-white m-10 rounded-lg py-12">
             <h1
                 class="flex flex-wrap gap-32 text-4xl text-black items-center justify-center font-semibold m-5"
@@ -64,6 +64,100 @@ import ArrowRight from "../Icon/ArrowRight.astro";
                 <br />
                 <input
                     class="font-medium text-lg hover:bg-white rounded-lg h-10 w-96 cursor-pointer hover:scale-105 transition-all bg-medioAlto text-black border border-medioBajo"
+                    type="submit"
+                    value="Enviar"
+                />
+            </form>
+        </div>
+    </div>
+</section>
+<script>
+    import Swal from "sweetalert2";
+    import emailjs, { sendForm } from "@emailjs/browser";
+
+    const frmEmail = document.getElementById("frm-email") as HTMLFormElement;
+    frmEmail.addEventListener("submit", sendEmail);
+
+    const serviceId = "service_8ryt2ap";
+    const templateId = "template_s9umz0d";
+    const apiKey = "eirM6edc-xYnky9uy";
+
+    function sendEmail(event) {
+        event.preventDefault();
+        emailjs.init(serviceId);
+
+        emailjs
+            .sendForm(serviceId, templateId, frmEmail, apiKey)
+            .then((result) =>
+                Swal.fire({
+                    icon: "success",
+                    text: "El mensaje se ha enviado con éxito. Responderemos su consulta a la brevedad.",
+                    confirmButtonColor: "#BFA995",
+                    confirmButtonText: "Ok!",
+                })
+            .catch((result) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "No ha sido posible enviar el mensaje!",
+                    });
+                }),
+            );
+        frmEmail.reset();
+    }
+</script> -->
+
+<section class="mb-8">
+    <div class="flex flex-col lg:flex-row gap-2">
+        <!-- Imagen -->
+        <div class="lg:basis-3/5 m-4 lg:m-10 relative">
+            <img
+                class="absolute object-cover rounded-lg w-full h-full"
+                src="/img/fotos/Velas3.png"
+                alt="Imagen"
+            />
+        </div>
+        <!-- Formulario -->
+        <div class="lg:basis-2/5 border-solid bg-white m-4 lg:m-10 rounded-lg py-12">
+            <h1
+                class="flex flex-wrap gap-8 text-3xl lg:text-4xl text-black items-center justify-center font-semibold m-5"
+            >
+                ¡Comprá por mayor!
+            </h1>
+            <form
+                class="flex flex-col text-xl lg:text-3xl m-6 lg:m-10 items-center justify-center"
+                id="frm-email"
+                onreset="formulario"
+            >
+                <label for="nombre" class="sr-only">Nombre</label>
+                <input
+                    class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro mb-4 px-4 py-2 w-full"
+                    type="text"
+                    name="username"
+                    placeholder="Nombre"
+                    id="username"
+                    required
+                />
+                <label for="email" class="sr-only">Email</label>
+                <input
+                    class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro mb-4 px-4 py-2 w-full"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    required
+                />
+                <label for="mensaje" class="sr-only">Mensaje</label>
+                <textarea
+                    class="rounded-lg border-medioBajo outline-none focus:border-claro focus:ring-1 focus:ring-claro mb-4 px-4 py-2 w-full"
+                    name="msg"
+                    id="msg"
+                    placeholder="Mensaje"
+                    rows="4"
+                    required
+                ></textarea>
+                <input
+                    class="font-medium text-lg hover:bg-white rounded-lg h-10 w-full cursor-pointer hover:scale-105 transition-all bg-medioAlto text-black border border-medioBajo"
                     type="submit"
                     value="Enviar"
                 />
